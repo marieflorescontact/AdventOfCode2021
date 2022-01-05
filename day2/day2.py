@@ -1,5 +1,5 @@
 def main():
-    path = '../inputs/day1.txt'
+    path = '../day1/day1.txt'
     file = open(path, 'r')
     depths = []
     for line in file:
