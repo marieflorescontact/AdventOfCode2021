@@ -1,19 +1,24 @@
 def main():
-    path = '../day1/day1.txt'
-    file = open(path, 'r')
-    depths = []
-    for line in file:
-        depths.append(int(line))
+    # forward x => horizontal += x
+    # down x => depth += x
+    # up x => deph -= x
 
-    increase = 0
-    sum = []
-    for i in range(len(depths) - 2):
-        sum_of_3 = depths[i] + depths[i + 1] + depths[i + 2]
-        sum.append(sum_of_3)
-    print(sum)
-    for j in range(len(sum) - 1):
-        if sum[j + 1] - sum[j] > 0:
-            increase += 1
-    print(increase)
+    path = 'day2.txt'
+    file = open(path, 'r')
+
+    horizontal = 0
+    depth = 0
+
+    for line in file:
+        splited = line.split()
+        if splited[0] == 'forward':
+            horizontal += int(splited[1])
+        if splited[0] == 'up':
+            depth -= int(splited[1])
+        if splited[0] == 'down':
+            depth += int(splited[1])
+
+    mutliply_result = depth * horizontal
+    print(mutliply_result)
 
     file.close()
