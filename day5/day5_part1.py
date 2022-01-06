@@ -25,7 +25,13 @@ def main():
             for i in range(a, b + 1):
                 grid[i][line[0][1]] += 1
 
-
+        else:
+            if line[0][0] > line[1][0]:
+                line = [line[1], line[0]]
+            for spot in range(line[1][0] - line[0][0] + 1):
+                vertical = spot if line[1][1] > line[0][1] else - spot
+                horizontal = spot if line[1][0] > line[0][0] else - spot
+                grid[line[0][0] + horizontal][line[0][1] + vertical] += 1
 
     count = 0
     for row in grid:
