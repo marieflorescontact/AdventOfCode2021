@@ -1,12 +1,13 @@
 def main():
-    path = 'day6.txt'
+    path = 'day6_test.txt'
     states = []
     f = open(path, 'r')
     for line in f:
         states.append(line.split(','))
 
-    for i in range(80):
+    for i in range(100):
         new_state = []
+
         new_fish = []
         for j in range(len(states[i])):
             internal_timer = int(states[i][j])
@@ -20,6 +21,7 @@ def main():
 
     last_day = states[-1]
     fishes = len(last_day)
+
     print(fishes)
 
     f.close()
